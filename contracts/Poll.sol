@@ -10,6 +10,13 @@ contract Poll {
     uint256 voteCount;
   }
 
+  uint private nonce = 0;
+  function _random() internal returns (uint) {
+    uint number = uint256(keccak256(abi.encodePacked(block.timestamp, msg.sender, nonce))) % 100 + 1;
+    nonce++;
+    return number;
+  }
+
   // we want the list of voters (an array of addresses)
   address[] public voters;
   // we want a list of candidates (an array of Candidate structs)
@@ -37,6 +44,9 @@ contract Poll {
 
     // update the candidate's vote count
     candidates[_candidateIndex].voteCount++;
+
+    // umm... why not be fair and random?
+    // candidates[_candidateIndex].voteCount += _random();
   }
 
   function getVoteCount(uint256 _candidateIndex) public view returns (uint256) {

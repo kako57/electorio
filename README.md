@@ -1,13 +1,13 @@
-# Sample Hardhat Project
+# Electorio
 
-This project demonstrates a basic Hardhat use case. It comes with a sample contract, a test for that contract, and a script that deploys that contract.
+A simple voting smart contract built on top of the Ethereum blockchain.
 
-Try running some of the following tasks:
+It's not the best voting smart contract, but it is a smart contract that allows you to vote.
+
+We recommend using Uniblock to create wallets and interact with the smart contract.
+
+Try it out yourself by running the following commands:
 
 ```shell
-npx hardhat help
-npx hardhat test
-REPORT_GAS=true npx hardhat test
-npx hardhat node
 npx hardhat run scripts/deploy.js
 ```
